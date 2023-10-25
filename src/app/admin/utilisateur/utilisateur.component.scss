@@ -1,0 +1,92 @@
+.container-utilisateur {
+    position: relative;
+    margin: 1rem;
+
+    .table-utilisateur {
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: .5rem;
+
+        }
+
+        table {
+
+            thead {}
+
+            tbody {
+
+                tr {
+
+                    td {
+
+                        button {
+                            font-size: 20px;
+
+                            i {}
+                        }
+
+                        button[title]::before {
+                            background-color: yellow;
+                            color: black;
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    .test {
+        width: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 3000;
+        top: 0;
+
+        form {
+            width: 400px;
+            border-radius: 15px 15px 15px 15px;
+            background-color: white;
+            box-shadow: 0px 3px 3px 3px rgb(219, 221, 223);
+
+            .form-header {
+                background-color: aliceblue;
+                height: 40px;
+                border-radius: 15px 15px 0px 0px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span {
+                    font-weight: bold;
+                }
+            }
+
+            .form-group {
+                margin-top: 1rem;
+                padding-left: 1rem;
+                padding-right: 1rem;
+
+                button {
+                    font-weight: bold;
+                    margin-right: 1rem;
+                }
+
+                a {
+                    margin-left: 1rem;
+                }
+            }
+
+            .button {
+                display: flex;
+                padding-bottom: 1rem;
+
+                button {}
+            }
+        }
+    }
+}

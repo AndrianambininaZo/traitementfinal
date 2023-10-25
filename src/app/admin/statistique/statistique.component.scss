@@ -1,0 +1,50 @@
+.statistique {
+    margin: 1rem;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+
+        .select {
+            width: 60%;
+            display: flex;
+            justify-content: space-between;
+
+            .selectMois {
+                margin-right: 1rem;
+            }
+
+            .selectClient {
+                margin-right: 1rem;
+            }
+        }
+
+        .cout {
+
+            .page {
+                margin-left: .7rem;
+            }
+        }
+    }
+
+    .table {}
+
+    .spanNonTache {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and(max-width:1000px) {
+    .statistique {}
+}
+
+@media screen and(max-width:800px) {
+    .statistique {
+        background-color: rgb(53, 172, 172);
+    }
+}

@@ -1,0 +1,64 @@
+.tous {
+    margin: 1rem;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+
+        .heder-left {
+            width: 70%;
+            display: flex;
+            height: 2.5rem;
+
+            .select {
+                display: flex;
+                width: 40%;
+
+                label {
+                    background-color: aliceblue;
+                }
+            }
+
+            input {
+                margin-right: 1rem;
+            }
+        }
+
+        .heder-rigth {
+            display: flex;
+            justify-content: end;
+            width: 30%;
+
+            .span {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                span {
+                    font-weight: bold;
+
+                    .cout {
+                        font-weight: bold;
+                        color: blue;
+                    }
+                }
+
+            }
+
+
+        }
+
+
+    }
+
+    .table {
+        margin-top: 1rem;
+    }
+
+    .spanNonTache {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

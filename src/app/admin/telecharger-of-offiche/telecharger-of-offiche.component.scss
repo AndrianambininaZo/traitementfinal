@@ -1,0 +1,58 @@
+.container-telecharger {
+    width: 100%;
+    height: calc(100vh - 70px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .main {
+        width: 50%;
+
+        .main-description-taches {
+            background-color: white;
+            box-shadow: 3px 3px 3px 3px rgb(238, 232, 232);
+
+            .consingation-title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                span {
+                    font-size: 20px;
+                }
+            }
+
+            span {
+                margin-left: 1rem;
+            }
+        }
+
+        .form {
+            margin-top: 1.5rem;
+            padding: 2rem;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 3px 3px 3px 3px rgb(238, 232, 232);
+
+
+            label {
+                width: 250px;
+                font-size: 20px;
+                height: 1.5rem;
+
+            }
+
+            button {
+                width: 200px;
+                border-radius: 7px;
+                color: aliceblue;
+                font-weight: bold;
+                background-color: green;
+
+            }
+        }
+    }
+}

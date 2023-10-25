@@ -1,0 +1,67 @@
+<div class="chat-container">
+    <div class="info-group">
+        <button class="btn btn-sm btn-success" routerLink="/my/admin/group">Info-Group</button>
+    </div>
+    <div class="chat">
+        <div class="chat-list-user">
+            <div class="user">
+                <span>{{nomDestinateur}}</span>
+                
+                <ul>
+                    <li *ngFor="let item of listGroup" (click)="selectGroup(item.id,item.nom)">{{item.nom}}
+                        <span></span>
+                    </li>
+                    <li *ngFor="let item of User" (click)="selectUser(item.id,item.email)">
+                        <span  class=".span1">{{item.nom}}</span><span class="spanLengh">{{test(item.id)}}</span>
+                    </li>
+                    <!---<li>{{ (teste(2) | async) }}</li>
+                    <li>{{ (teste(1) | async) }}</li> -->
+                </ul>              
+            </div>
+        </div>
+        <div class="chat-byUser" *ngIf="selected==false">
+            <div class="header">
+                <span>{{nomExpediteur}}</span>
+            </div>
+            <div #scrollableElement class="scrollable-element">
+                <ul>
+                    <li *ngFor="let item of listMessage" [ngClass]="item.idExp==idUser? 'isExpediteur':'isDestinateur'">
+                        <span>{{item.message}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer" *ngIf="checkClient">
+                <form [formGroup]="formMessage" (ngSubmit)="ajouterMessage()">
+                    <textarea type="text" class="form-control" placeholder="Ecrire votre message"
+                        formControlName="message"></textarea>
+                    <button type="submit" class="btn"><i class="bi bi-send"></i></button>
+                </form>
+
+            </div>
+        </div>
+        <div class="chat-byUser" *ngIf="selected">
+            <div class="header">
+                <span>{{nomGroupCheck}}</span>
+            </div>
+        <!--Message by group-->
+            <div class="bodyGroup">
+                <ul>
+                    <li *ngFor="let item of listMessageByGroup"
+                        [ngClass]="item.user.id==idUser? 'isDestinateur':'isExpediteur'">
+                        <span class="span">{{item.message}}</span>
+                        <span *ngIf="item.user.id!=idUser" class="spanIsDes">Des:{{item.user.nom}}</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer">
+                <form [formGroup]="formMessageByGroup" (ngSubmit)="ajouterMessageGroup()">
+                    <textarea type="text" class="form-control" placeholder="Ecrire votre message"
+                        formControlName="messageGroup"></textarea>
+                    <button type="submit" class="btn"><i class="bi bi-send"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+</div>

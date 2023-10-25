@@ -1,0 +1,42 @@
+<div class="traitement">
+    <div class="header">
+        <span>Liste tache</span>
+    </div>
+    <ng-container *ngIf="traitemeNoValider; else loadingAndError">
+        <div  class="liste">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Code tache</th>                    
+                        <th>Client</th>
+                        <th>Mots</th>
+                        <th>Pages</th>
+                        <th>BackOffice</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of traitemeNoValider; let i=index">
+                        <td>{{i + 1}}</td>
+                        <td>{{item.reception.operationEntree.codeTache}}</td>
+                        <td>{{item.reception.operationEntree.user.nom}}</td>
+                        <td>{{item.mots}}</td>
+                        <td>{{item.page}}</td>
+                        <td>{{item.reception.user.nom}}</td>
+                        <td>
+                            <button class="btn btn-sm btn-success" (click)="accepterTraitemen(item.id)">Accepter</button>
+                            <button class="btn btn-sm btn-secondary btnTelecharger" (click)="telechargeFile(item.id,item.reception.operationEntree.codeTache)">Telecharger</button>
+                            <button class="btn btn-sm btn-info btnAnnuller">Modifier</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </ng-container>
+    <ng-template #loadingAndError>        
+     
+        Loading.......
+            
+    </ng-template>
+</div>

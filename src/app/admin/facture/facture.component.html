@@ -1,0 +1,79 @@
+<div class="facture">
+    <div class="header">
+        <div class="select">
+            <div class="form-group2">
+                <label for="">Annee:</label>
+                <input type="number" placeholder="Prix unitaire" readonly value="{{annee}}" class="form-control">
+            </div>
+            <div class="form-group1">
+                <label for="">Facturer par:</label>
+                <select name="" id="" class="form-select" (change)="selectByType($event)">
+                    <option value="">------Choisir-------</option>
+                    <option value="mot">Mot     </option>
+                    <option value="page">Page    </option>
+                    <option value="audio">Audio    </option>
+                </select>
+            </div>
+            <div class="form-group2">
+                <label for="">Prix unitaire:</label>
+                <input type="text" placeholder="Prix unitaire" class="form-control" (keyup)="prixUntaire($event)">
+            </div>
+        </div>
+        <div class="button-excel">
+            <label for="">Facturer :</label>
+            <button class="btn btn-primary" (click)="exportExcel()">Exporter</button>
+            <button class="btn btn-primary" (click)="test()">Test</button>            
+        </div>
+    </div>
+    <div class="afficheIsNot" *ngIf="afficheIsNot">
+        <span>Veuillez selection le type de facture</span>
+    </div>
+    <div *ngIf="afficheByMots" class="liste">
+        <table class="table table-bordered" id="table-listeR">
+            <thead>
+                <tr [hidden]="true"><td>Mois MAis</td></tr>
+                <tr>
+                    <th>#</th>
+                    <th>Code Taches</th>
+                    <th>Mots</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listeTache; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.reception.operationEntree.codeTache}}</td>
+                    <td>{{item.mots}}</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="1"></td>
+                    <td style="font-weight: bold;">Total</td>
+                    <td style="font-weight: bold;">{{totalByClient}}</td>
+                </tr>
+            </tbody>
+        </table>        
+    </div>
+    <div *ngIf="afficheByPage" class="liste">
+        <table class="table table-bordered" id="table-listeR">
+            <thead>
+                <tr [hidden]="true"><td>Mois MAis</td></tr>
+                <tr>
+                    <th>#</th>
+                    <th>Code Taches</th>
+                    <th>Page</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listeTache; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.reception.operationEntree.codeTache}}</td>
+                    <td>{{item.page}}</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="1"></td>
+                    <td style="font-weight: bold;">Total</td>
+                    <td style="font-weight: bold;">{{totalPageByClient}}</td>
+                </tr>
+            </tbody>
+        </table>        
+    </div>  
+</div>

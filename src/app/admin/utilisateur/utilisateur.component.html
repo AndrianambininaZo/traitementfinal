@@ -1,0 +1,73 @@
+<div class="container-utilisateur">
+    <div class="table-utilisateur">
+        <div class="header">
+            <span>Liste de tous utilisateur</span>
+            <button class="btn btn-success" type="button" (click)="openModal()"><i class="bi bi-person-fill-add"></i> Nouveau</button>
+        </div>
+        <table class="table table-group-divider">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of user | paginate:{itemsPerPage:6,currentPage:page,totalItems:totalPageItems}">
+                    <td>{{item.id}}</td>
+                    <td>{{item.nom}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.role[0].nomRole}}</td>
+                    <td>
+                        <button class="btn btn-sm" *ngIf="item.status==0" style="color: aquamarine;" title="activer"
+                            (click)="desactiverCompter(item.id)" ><i
+                                class="bi bi-toggle-off"></i></button>
+                        <button class="btn btn-sm" style="color: aquamarine;" *ngIf="item.status==1" (click)="desactiverCompter(item.id)" title="Desactiver"
+                            ><i class="bi bi-toggle-on"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>  
+        <div class="pagination">
+            <pagination-controls (pageChange)="page=$event"></pagination-controls>
+        </div>      
+    </div>
+    <div class="test" [hidden]="modal">
+        <form [formGroup]="formUtilisateur" (ngSubmit)="enregitrerUtilisateur()">
+            <div class="form-header">
+                <span>Ajout nouveau utilisateur</span>
+            </div>
+            <div class="form-group">
+                <label for="">Nom :</label>
+                <input type="text" formControlName="nom" class="form-control" placeholder="Nom utilisateur">
+                <small *ngIf="formUtilisateur.controls['nom'].errors && formUtilisateur.controls['nom'].touched" class="text-danger">Nom non valide(min 2)</small>
+            </div>
+            <div class="form-group">
+                <label for="">Email :</label>
+                <input type="text" formControlName="email"  class="form-control" placeholder="Email utilisateur">
+                <small *ngIf="formUtilisateur.controls['email'].errors && formUtilisateur.controls['email'].touched" class="text-danger">Email non valide(obligatoire @)</small>
+            </div>
+            <div class="form-group">
+                <label for="">Password :</label>
+                <input type="text" formControlName="password"  class="form-control" placeholder="Mot de passe utilisateur">
+                <small *ngIf="formUtilisateur.controls['password'].errors && formUtilisateur.controls['password'].touched" class="text-danger">Mot de passe non valide(min 6 et max 14)</small>
+            </div>
+            <div class="form-group">
+                <label for="">Role :</label>
+                <select class="form-select" formControlName="role" >
+                    <option value=""></option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="BACKOFFICE">BACKOFFICE</option>
+                    <option value="CLIENT">CLIENT</option>
+                </select>
+            </div>
+            <div class="form-group button">
+               <button [disabled]="!formUtilisateur.valid" type="submit" class="btn btn-primary form-control">Enregistrer</button>
+               <a class="btn btn-danger form-control" (click)="annuller()">Annuller</a>
+            </div>
+        </form>
+    </div>    
+</div>
+

@@ -1,0 +1,22 @@
+.container-list {
+    width: 100%;
+    margin-top: 1rem;
+
+    .header-liste {
+        width: 70%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: .7rem;
+    }
+
+    .table {
+        padding: .7rem;
+    }
+
+    .spanNonTache {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

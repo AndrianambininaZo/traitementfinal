@@ -1,0 +1,19 @@
+<div class="container-telecharger">
+    <div class="main">
+        <div class="main-description-taches">
+            <div class="consingation-title">
+                <span>Consingation de tache</span> 
+            </div>           
+            <span class="body-consingation">{{description}}</span>
+        </div>
+        <div class="form">
+            <label for="">Fichier documment:</label>
+            <button (click)="teleChargerDoc()"> <i class="bi bi-upload"></i> Telecharger <i class="bi bi-filetype-docx"></i></button>
+        </div>
+        <div class="form">
+            <label for="">Fichier audio:</label>
+            <button (click)="teleChargerAudio()"><i class="bi bi-upload"></i> Telecharger <i class="bi bi-filetype-mp3"></i></button>   
+        </div>
+        
+    </div>
+</div>

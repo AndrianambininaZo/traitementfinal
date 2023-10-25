@@ -1,0 +1,109 @@
+/* open false*/
+.navbar-container {
+    background-color: #263238;
+    width: 5rem;
+    height: 100vh;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: .25rem;
+    align-items: center;
+    height: 75px;
+    border-bottom: 1px solid aliceblue;
+
+}
+
+.logo-container .logo {
+    padding-left: .5rem;
+    display: flex;
+    align-items: center;
+    color: rgb(143, 186, 224);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+
+.logo-container .logo .text-c {
+    font-size: 40px;
+    height: 60px;
+    cursor: pointer;
+    width: 1.7rem;
+    background-color: aliceblue;
+    border-radius: .5rem;
+
+}
+
+.logo-container .logo-close {
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding-right: 2px;
+    display: flex;
+    justify-content: center;
+    background-color: transparent;
+    width: 1.3em;
+    border-radius: 1rem;
+}
+
+.sidenav-nav {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    margin: 0;
+    padding: 1rem;
+}
+
+.sidenav-nav .nav-item {
+    width: 100%;
+    margin-bottom: .65rem;
+}
+
+.sidenav-nav .nav-item .nav-item-link {
+    display: flex;
+    align-items: center;
+    color: white;
+    height: 2.3rem;
+    text-decoration: none;
+    transition: all 1s ease;
+    border-radius: .5rem;
+    font-weight: bold;
+}
+
+.sidenav-nav .nav-item .nav-item-link .nav-link-icon {
+    font-size: 22px;
+    padding-left: .7rem;
+    width: 2rem;
+    min-width: 2rem;
+    text-align: center;
+}
+
+.sidenav-nav .nav-item .nav-item-link .nav-link-text {
+    margin-left: 1.25em;
+}
+
+.sidenav-nav .nav-item .nav-item-link:hover {
+    background-color: white;
+    color: black;
+}
+
+/* open true*/
+.navbar-open {
+    width: 13rem;
+    height: 100vh;
+}
+
+.active {
+    background-color: white;
+}
+
+.active .nav-link-text {
+    color: #263238;
+}
+
+.active .nav-link-icon {
+    color: #263238;
+}

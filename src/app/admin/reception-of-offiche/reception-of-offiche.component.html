@@ -1,0 +1,39 @@
+<div class="listes">
+    <div class="header">
+        <span>Listes de taches</span>     
+    </div>
+    <div *ngIf="listereception.length > 0" class="table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Code taches</td>
+                    <td>Nom client</td>
+                    <td>Email client</td>
+                    <td>Priority</td>
+                    <td>Status</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listereception">
+                    <td>{{item.id}}</td>
+                    <td>{{item.operationEntree.codeTache}}</td>
+                    <td>{{item.operationEntree.user.nom}}</td>
+                    <td>{{item.operationEntree.user.email}}</td>
+                    <td>{{item.operationEntree.priority}}</td>
+                    <td>{{item.operationEntree.status}}</td>
+                    <td>
+                        <button *ngIf="item.operationEntree.status=='En cours'" class="btn btn-sm btn-secondary" (click)="telecharger(item.operationEntree.id)">Telecharger</button>
+                        <button *ngIf="item.operationEntree.status=='En cours'" class="btn btn-sm btn-primary" (click)="traitemment(item.id,item.operationEntree.codeTache)">Rendre</button>
+                        <!--<button *ngIf="item.operationEntree.status=='Traitée'" class="btn btn-sm btn-success" (click)="traitemment(item.id)">Modifier</button> --n 
+                        -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="listereception.length == 0" class="spanNonTache">
+        <span>Aucun tache selectionée! prendre nouveau tache</span>
+    </div>
+</div>

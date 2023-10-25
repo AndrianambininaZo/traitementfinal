@@ -1,0 +1,36 @@
+<div class="navbar-container" [ngClass]="openNav? 'navbar-open':''">
+    <div class="logo-container">
+        <div class="logo">
+            <span class="text-c" (click)=" onOpenNav()">A</span>
+            <span *ngIf="openNav"><span class="text-o">r</span>osaina</span>
+        </div>
+        <span class="logo-close" *ngIf="openNav" title="fermer" (click)="onColseNav()">X</span>
+    </div>
+    <ul class="sidenav-nav" *ngIf="role=='ADMIN'">
+        <li class="nav-item" *ngFor="let item of data">
+            <a *ngIf="servi.getMatch(item.role)" class="nav-item-link" [routerLink]="[item.routeLink]"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="nav-link-icon" [ngClass]="item.icon"></i>
+                <span class="nav-link-text" *ngIf="openNav">{{item.label}}</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="sidenav-nav" *ngIf="role=='CLIENT'">
+        <li class="nav-item" *ngFor="let item of dataClient">
+            <a *ngIf="servi.getMatch(item.role)" class="nav-item-link" [routerLink]="[item.routeLink]"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="nav-link-icon" [ngClass]="item.icon"></i>
+                <span class="nav-link-text" *ngIf="openNav">{{item.label}}</span>
+            </a>
+        </li>
+    </ul>
+    <ul class="sidenav-nav" *ngIf="role=='BACKOFFICE'">
+        <li class="nav-item" *ngFor="let item of dataBackOffiche">
+            <a *ngIf="servi.getMatch(item.role)" class="nav-item-link" [routerLink]="[item.routeLink]"
+                routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">
+                <i class="nav-link-icon" [ngClass]="item.icon"></i>
+                <span class="nav-link-text" *ngIf="openNav">{{item.label}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

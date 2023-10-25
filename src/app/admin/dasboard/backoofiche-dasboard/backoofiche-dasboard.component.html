@@ -1,0 +1,48 @@
+<div class="offiche">
+    <div class="header">
+        <div class="header-left">
+            <select  class="form-select form-moi" (change)="selectByMois($event)">
+                <option *ngFor="let item of mois" value="{{item.id}}" >{{item.mois}}</option>
+            </select>
+            <select class="form-select" (change)="selectByAnnee($event)">
+                <option value="{{item}}" *ngFor="let item of annees">{{item}}</option>
+            </select>
+        </div>
+        <div class="header-right">
+            <span>Tache traitée: <span>{{lengthByMois}}</span></span>
+        </div>   
+    </div>
+    <div class="liste-table">
+        <span>List de tache traitée</span>
+        <table *ngIf="listereception.length > 0"  class="table table-bordered">
+            <thead>
+                <tr>
+                    <td>#</td>
+                    <td>Code taches</td>
+                    <td>Nom client</td>
+                    <td>Email client</td>
+                    <td>Priority</td>
+                    <td>Status</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listereception | paginate:{itemsPerPage:8,currentPage:page,totalItems:totalPageItems} ; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.operationEntree.codeTache}}</td>
+                    <td>{{item.operationEntree.user.nom}}</td>
+                    <td>{{item.operationEntree.user.email}}</td>
+                    <td *ngIf="item.operationEntree.priority =='1'" style="color: red;">Trés urgent</td>
+                    <td *ngIf="item.operationEntree.priority =='2'" style="color: rgb(233, 236, 20);">Urgent</td>
+                    <td *ngIf="item.operationEntree.priority =='3'" style="color: rgb(44, 62, 219);">Moyenne</td>
+                    <td>{{item.operationEntree.status}}</td>                    
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="listereception.length > 0" class="pagination">
+            <pagination-controls (pageChange)="page=$event"></pagination-controls>
+        </div> 
+    </div>
+    <div *ngIf="listereception.length == 0" class="spanNonTache">
+        <span>Aucun tache traitée</span>
+    </div>
+</div>

@@ -1,0 +1,36 @@
+.traitement {
+    margin: 1rem;
+
+    .header {
+        span {
+            border-bottom: solid 2px gray;
+        }
+    }
+
+    .liste {
+        table {
+            thead {}
+
+            tbody {
+                tr {
+                    td {
+                        .btnTelecharger {
+                            margin-left: .5rem;
+                        }
+
+                        .btnAnnuller {
+                            margin-left: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .spanNonTache {
+        height: 50vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

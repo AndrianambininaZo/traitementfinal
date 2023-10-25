@@ -1,0 +1,43 @@
+<div class="client">
+    <div class="header">
+      <div class="form-group">
+          <select  class="form-select select-mois" (change)="selectByMois($event)">
+            <option *ngFor="let item of mois" value="{{item.id}}" >{{item.mois}}</option>
+          </select>
+          <select name="" id="" class="form-select" (change)="selectByMoisAndAnnee($event)">
+            <option value="{{item}}" *ngFor="let item of annees">{{item}}</option>
+          </select>
+      </div>
+    </div>
+    <div class="liste">
+        <span class="span">Liste de tache traitée</span>
+        <table *ngIf="listeTraitement.length > 0" class="table table-bordered">
+          <thead>
+              <tr>
+                  <th>#</th>
+                  <th>Code tache</th>
+                  <th>Status</th>
+                  <th>Action</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let item of listeTraitement | paginate:{itemsPerPage:8,currentPage:page,totalItems:totalPageItems}  ; let i=index">
+                  <td>{{i + 1 }}</td>
+                  <td>{{item.reception.operationEntree.codeTache }}</td>
+                  <td>{{item.reception.operationEntree.status }}</td>
+                  <td>
+                    <button class="btn btn-success btn-sm" (click)="telechargeFile(item.id,item.reception.operationEntree.codeTache)"><i class="bi bi-filetype-docx"></i>Telecharger</button>
+                  </td>                
+            </tr>
+          </tbody>
+        </table>
+        <div *ngIf="listeTraitement.length > 0" class="pagination">
+          <pagination-controls (pageChange)="page=$event" responsive!="true"
+          previousLabel="Precedent"
+          nextLabel="Suivant"></pagination-controls>
+       </div>
+      <div *ngIf="listeTraitement.length == 0" class="spanNonTraiter">
+        <span>Aucune tache traiter</span>
+      </div>
+    </div>
+</div>

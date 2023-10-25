@@ -1,0 +1,31 @@
+<div class="login_container">
+	<div class="main">
+		<form [formGroup]="loginForm" (ngSubmit)="authentification()">
+			<div class="header_form">
+				<img src="./../../assets/images/Asosaina.jpg" alt="">
+				<!--<span>AROSAINA</span>-->
+			</div>
+			<div class="input_form">
+				<label for="">Email *:</label>
+				<input type="text" class="form-control" placeholder="Votre email" formControlName="username">
+				<small *ngIf="loginForm.controls['username'].errors && loginForm.controls['username'].touched" class="text-danger">Email non valide(obligatoire @)</small>
+			</div>
+			<div class="input_form">
+				<label for="">Mot de passe *:</label>
+				<input type="password" class="form-control" name="" placeholder="Votre mot de passe"
+					formControlName="password">
+					<small *ngIf="loginForm.controls['password'].errors && loginForm.controls['password'].touched" class="text-danger">Mot de passe non valide(min 6 et max 14)</small>
+			</div>
+			<div class="input_form">
+				<button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary button ">Connexion</button>
+			</div>
+			<div class="footer">
+				<a href="" title="facebook"><i class=" bi bi-facebook"></i></a>
+				<a href="" title="twitter"><i class=" bi bi-twitter"></i></a>
+				<a href="" title="whatsapp"><i class=" bi bi-whatsapp"></i></a>
+			</div>
+		</form>
+	</div>
+	<!--<button (click)="startLoading()">test</button>-->
+	<footer>@Copyright 2023 <a routerLink="/devI_R_Z">DevIRZ</a></footer>
+</div>

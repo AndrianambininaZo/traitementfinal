@@ -1,0 +1,34 @@
+.client {
+    margin: 1rem;
+
+    .header {
+        margin-bottom: 1rem;
+        width: 50%;
+
+        .form-group {
+            display: flex;
+
+            .select-mois {
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .liste {
+        .span {
+            font-weight: bold;
+            border-bottom: solid 1.5px grey;
+        }
+
+        .spanNonTraiter {
+            height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                margin-left: 3rem;
+            }
+        }
+    }
+}

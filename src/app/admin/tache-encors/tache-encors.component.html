@@ -1,0 +1,30 @@
+<div class="tache-encours">
+    <div class="header">
+        <span>Liste tache encours</span>
+    </div>
+    <div *ngIf="listeReception" class="liste">
+        <table class="table table-hover table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Client</th>
+                    <th>Code tache</th>
+                    <th>Back office</th>
+                    <th>Status</th>
+                    <th>Date Reception</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listeReception; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.operationEntree.user.nom}}</td>
+                    <td>{{item.operationEntree.codeTache}}</td>
+                    <td>{{item.user.nom}}</td>
+                    <td>{{item.operationEntree.status}}</td>
+                    <td>{{item.dateReception | date:"dd-MM-yyyy hh:mm:ss"}}</td>
+                </tr>
+            </tbody>           
+        </table>
+    </div>
+    
+</div>

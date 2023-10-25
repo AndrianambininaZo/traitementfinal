@@ -1,0 +1,30 @@
+<div class="taches-container">
+    <div class="header">
+        <input type="text"  (keyup)="getKey($event)" placeholder="Recherche par code tache">
+        <i class="bi bi-search incon"></i>
+    </div>
+    <div class="table-taches">
+        <span>Liste de mon tache</span>
+        <table class="table table-hover table-striped ">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Code tache</th>
+                    <th>Status</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listeOperation ; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.codeTache}}</td>
+                    <td >{{item.status  }}</td>
+                    <td *ngIf="item.priority =='1'" style="color: red;">Trés urgent</td>
+                    <td *ngIf="item.priority =='2'" style="color: rgb(233, 236, 20);">Urgent</td>
+                    <td *ngIf="item.priority =='3'" style="color: rgb(44, 62, 219);">Moyenne</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

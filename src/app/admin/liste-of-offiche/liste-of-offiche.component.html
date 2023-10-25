@@ -1,0 +1,35 @@
+<div class="listes">
+    <div class="header">
+        <span>Liste de taches disponible</span>
+    </div>
+    <div *ngIf="listeOperation.length > 0" class="table">
+        <table   class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>CodeTaches</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Action</th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listeOperation ; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{item.codeTache}}</td>
+                    <td>{{item.description}}</td>
+                    <td *ngIf="item.priority =='1'" style="color: red;">Trés urgent</td>
+                    <td *ngIf="item.priority =='2'" style="color: rgb(233, 236, 20);">Urgent</td>
+                    <td *ngIf="item.priority =='3'" style="color: rgb(44, 62, 219);">Moyenne</td>
+                    <td>
+                        <button (click)="prendreTaches(item.id)" class="btn btn-success btn-sm">Prendre</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="listeOperation.length == 0" class="spanNonTache">
+        <span>Aucun tache disponible! veuillez attendre</span>
+    </div>
+</div>

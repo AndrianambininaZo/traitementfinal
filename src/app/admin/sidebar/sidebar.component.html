@@ -1,0 +1,17 @@
+<div class="sidebar-container">
+    <div class=""></div>
+    <div class="recherche">
+        <span>Bienvenue <span class="nomUser">{{nom}}</span></span>
+    </div>
+    <div class="deconnection">
+        <a *ngIf="role=='CLIENT'" class="deconnexion-btn" (click)="deconnexionClient()" title="Deconnecter"><i
+            class="bi bi-box-arrow-right"></i>
+    </a>
+        <a *ngIf="role=='ADMIN'" class="deconnexion-btn" (click)="deconnexion()" title="Deconnecter"><i
+                class="bi bi-box-arrow-right"></i>
+        </a>
+        <a *ngIf="role=='BACKOFFICE'" class="deconnexion-btn" (click)="deconnexion()" title="Deconnecter"><i
+            class="bi bi-box-arrow-right"></i>
+    </a>   
+    </div>
+</div>

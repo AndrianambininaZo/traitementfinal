@@ -1,0 +1,52 @@
+<div class="list-jour">    
+    <ng-container *ngIf="listByDay ; else loadingAndError">
+        <div class="header">
+            <span>Liste de tache traitrée aujourd'hui</span>
+        </div>
+        <div class="liste-table">
+            <table class="table ">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Date retour</th>
+                        <th>Mots</th>
+                        <th>Page</th>
+                        <th>Date reception</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of listByDay">
+                        <td>{{item.reception!.operationEntree.user.nom}}</td>
+                        <td>{{item.dateFull | date:"dd-MM-yyyy hh:mm:ss"}}</td>
+                        <td>{{item.mots}}</td>
+                        <td>{{item.page}}</td>
+                        <td>{{item.reception!.dateReception | date:"dd-MM-yyyy hh:mm:ss"}}</td>                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div #scrollContainer class="scroll-container">
+            <div>
+                <span>saluuuuuuu</span>
+                
+            </div>
+            <div>
+                <span>saluuuuuuu</span>
+            </div>
+            <div>
+                <span>saluuuuuuu</span>
+            </div>
+            <div>
+                <span>saluuuuuuu</span>
+            </div>
+        </div>
+    </ng-container>
+    <ng-template #loadingAndError>        
+        <ng-container *ngIf="errorMessage; else loading">
+            <span class="text-danger">{{errorMessage}}</span>
+        </ng-container>
+        <ng-template #loading>
+            Loading.......
+        </ng-template>       
+    </ng-template>    
+</div>

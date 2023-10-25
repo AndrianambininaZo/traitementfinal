@@ -1,0 +1,19 @@
+.tache-encours {
+    margin: 1rem;
+
+    .header {
+        span {
+            border-bottom: solid 2px gray;
+        }
+    }
+
+    .liste {}
+
+    .spanNonTache {
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+}

@@ -1,0 +1,43 @@
+<div class="statistique">
+    <div class="header">        
+        <div class="select">            
+            <select  class="form-select selectMois" (change)="selectByMois($event)">
+                <option *ngFor="let item of mois" value="{{item.id}}" >{{item.mois}}</option>
+            </select> 
+            <select  class="form-select inputMois" (change)="selectByAnnee($event)">
+                <option *ngFor="let item of annees" value="{{item}}" >{{item}}</option>
+            </select>          
+            <!--<input type="date" class="form-control selectDate" (change)="selectDate($event)">-->
+        </div>
+        <div class="cout">
+            <span>Total mots: {{totalByClient}}</span>
+            <span class="page">Total page: {{totalPageByClient}}</span>
+        </div>
+    </div>
+    <div *ngIf="listeTache.length > 0" class="table">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Code</th>
+                    <th>Mots</th>
+                    <th>Page</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of listeTache | paginate:{itemsPerPage:7,currentPage:page,totalItems:totalPageItems}">
+                    <td>{{item.id}}</td>
+                    <td>{{item.reception!.operationEntree.codeTache}}</td>
+                    <td>{{item.mots}}</td>
+                    <td>{{item.page}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <pagination-controls (pageChange)="page=$event"></pagination-controls>
+        </div>
+    </div>
+    <div *ngIf="listeTache.length == 0" class="spanNonTache">
+        <span>Aucun tache</span>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="utf-8">
+  <title>Arosaina</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/*" href="/src/assets/images/photo.jpg">
+  <style>
+    *{
+
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      
+    }        
+  </style>
+</head>
+<body>
+  <app-root></app-root>
+  <script>
+    // Fonction de gestion du clic droit
+    function handleRightClick(event) {
+      event.preventDefault(); // Empêche le menu contextuel du navigateur de s'afficher
+      // Votre logique personnalisée pour le clic droit ici
+      console.log('Clic droit détecté !');
+    }
+
+    // Attachez le gestionnaire d'événements au document
+   // document.addEventListener('contextmenu', handleRightClick);
+  </script>
+</body>
+</html>
